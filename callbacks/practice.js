@@ -20,7 +20,7 @@
   }
 */
 
-////////// PROBLEM 1 //////////
+////////// PROBLEM 1 ////////////
 
 /*
   Write a function called first that takes in two parameters, an array and a callback function.
@@ -28,7 +28,9 @@
 */
 
 // Code Here 
-
+function first(array, callback){
+  callback(array[0])
+}
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -48,6 +50,10 @@ first(names, function(firstName){
 */
 
 //Code Here
+function last(array, callback){
+  callback(array[array.length - 1])
+}
+
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -66,6 +72,11 @@ last(names, function(lastName){
 */
 
 //Code Here
+function multiply(num1, num2, callback){
+  callback(num1 * num2)
+
+}
+
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -85,6 +96,15 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
+function contains(array, name, callback){
+  if(array.indexOf(name) === -1){
+    callback(false)
+  }else {
+    callback(true)
+  }
+
+}
+
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,7 +126,16 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(array, callback){
+  let answer = []
 
+  array.forEach(element => {
+    if(!answer.includes(element)){
+      answer.push(element)
+    }
+  })
+  return callback(answer);
+}
 // Do not edit the code below.
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -124,6 +153,17 @@ uniq(names, function(uniqArr){
 
 //Code Here 
 
+
+function each(array, callback){
+  array.forEach((name, index) => {
+    callback(name, index) 
+  })
+}
+  
+
+  
+
+
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -140,6 +180,20 @@ each(names, function(item, indice){
 */
 
 // Code here
+function getUserById(users, id, callback){
+   let foundUser = users.filter( (user) => {
+    return user.id === id
+    
+  })
+  console.log(foundUser)
+  callback(foundUser[0]) 
+}
+
+
+
+
+
+
 
 // Do not edit the code below.
 var users = [
